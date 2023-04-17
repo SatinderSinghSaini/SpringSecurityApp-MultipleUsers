@@ -1,12 +1,14 @@
 package com.learnspringsecurity.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "customers")
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
+    @GenericGenerator(name = "native",strategy = "native")
     private Long id;
     private String email;
     private String pwd;
